@@ -1,11 +1,12 @@
-var expect = require('expect.js')
+var test = require('tape');
 var overPopulated = require('../overPopulated')
 
-describe('#overPopulated', function () {
-  it('should return true with cell count > 3', function () {
-    expect(overPopulated(4)).to.be(true)
-  })
-  it('should return false with cell count < 4', function () {
-    expect(overPopulated(3)).to.be(false)
-  })
+test('#should return true with cell count > 3', function (t) {
+  t.plan(1)
+  t.true(overPopulated(4))
+})
+
+test('#should return true with cell count < 4', function (t) {
+  t.plan(1)
+  t.false(overPopulated(3))
 })
