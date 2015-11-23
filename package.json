@@ -12,7 +12,10 @@
     "mocha": "^2.3.4"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "standard && mocha"
+  },
+  "standard": {
+    "globals": [ "describe", "it", "beforeEach" ]
   },
   "repository": {
     "type": "git",
