@@ -1,14 +1,10 @@
-var expect = require('expect.js')
+var test = require('tape');
 var getNeighbours = require('../getNeighbours')
 var createBoard = require('../conway.js').createBoard
 
-describe('#getNeighbours', function () {
-  it('should return 8 neigbours', function () {
-    var board = createBoard(10)
-    expect(getNeighbours(2, 2, board).length).to.be(8)
-  })
-  it('should return 3 neigbours for a corner cell', function () {
-    var board = createBoard(10)
-    expect(getNeighbours(0, 0, board).length).to.be(3)
-  })
+test('getNeighbours', function(t){
+  var board = createBoard(10)
+  t.equal(getNeighbours(2, 2, board).length, 8)
+  t.equal(getNeighbours(0, 0, board).length, 3)
+  t.end()
 })
