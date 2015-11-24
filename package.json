@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test": "standard && tape test/**/*.js | faucet",
-    "tape": "tape test/**/*.js"
+    "tape": "tape test/**/*.js | faucet"
   },
   "standard": {
     "globals": []
