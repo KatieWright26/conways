@@ -6,17 +6,19 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "faucet": "0.0.1"
+  },
   "devDependencies": {
     "standard": "^5.4.1",
     "tape": "^4.2.2"
   },
   "scripts": {
-    "test": "standard && tape test/**/*.js",
+    "test": "standard && tape test/**/*.js | faucet",
     "tape": "tape test/**/*.js"
   },
   "standard": {
-    "globals": [ ]
+    "globals": []
   },
   "repository": {
     "type": "git",
