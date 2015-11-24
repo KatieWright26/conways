@@ -18,8 +18,8 @@ test('ressurectable normal cases', function (t) {
     var expected = expecteds[input]
     var actual = ressurectable(parseInt(input, 10))
 
-    var message = "cell count " + input + " is " +
-      (expected ? "ressurectable" : "not ressurectable")
+    var message = 'cell count ' + input + ' is ' +
+      (expected ? 'ressurectable' : 'not ressurectable')
 
     t.equal(actual, expected, message)
   })

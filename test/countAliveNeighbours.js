@@ -1,8 +1,8 @@
-var test = require('tape');
+var test = require('tape')
 
 var countAliveNeighbours = require('../countAliveNeighbours')
 var createBoard = require('../conway').createBoard
-test('countAliveNeighbours', function(t) {
+test('countAliveNeighbours', function (t) {
   var board = createBoard(10)
   board[0][0] = true
   board[0][1] = true
@@ -13,7 +13,7 @@ test('countAliveNeighbours', function(t) {
   board[2][2] = true
   board[1][2] = true
   board[1][1] = true
-  t.equal(countAliveNeighbours(1,1,board), 8)
-  t.equal(countAliveNeighbours(0,0,board), 3)
+  t.equal(countAliveNeighbours(1, 1, board), 8)
+  t.equal(countAliveNeighbours(0, 0, board), 3)
   t.end()
 })

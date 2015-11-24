@@ -1,15 +1,10 @@
-var expect = require('expect.js')
+var test = require('tape')
 var nextCellState = require('../nextCellState')
 
-describe('#nextCellState', function () {
-  it('returns true if cell is alive and neighbour count is 2 or 3', function () {
-    expect(nextCellState(true, 3)).to.be(true)
-    expect(nextCellState(true, 2)).to.be(true)
-  })
-  it('should return false if cell is alive and overpopulated', function () {
-    expect(nextCellState(true, 4)).to.be(false)
-  })
-  it('should return true id cell is dead and ressurectable', function () {
-    expect(nextCellState(false, 3)).to.be(true)
-  })
+test('nextCellState', function (t) {
+  t.true(nextCellState(true, 2), 'returns true if cell is alive and neighbour count is 2')
+  t.true(nextCellState(true, 3), 'returns true if cell is alive and neighbour count is 3')
+  t.false(nextCellState(true, 4), 'should return false if cell is alive and overpopulated')
+  t.true(nextCellState(false, 3), 'should return true id cell is dead and ressurectable')
+  t.end()
 })

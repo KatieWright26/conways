@@ -18,8 +18,8 @@ test('underPopulated normal cases', function (t) {
     var expected = expecteds[input]
     var actual = underPopulated(input)
 
-    var message = "cell count " + input + " is " +
-      (expected ? "underpopulated" : "not underpopulated")
+    var message = 'cell count ' + input + ' is ' +
+      (expected ? 'underpopulated' : 'not underpopulated')
 
     t.equal(actual, expected, message)
   })
