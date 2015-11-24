@@ -1,14 +1,28 @@
-var expect = require('expect.js')
+var test = require('tape')
 var indicesOutOfBounds = require('../indicesOutOfBounds')
 
-describe('#indicesOutOfBounds', function () {
-  it('returns true with an index < 0', function () {
-    expect(indicesOutOfBounds(-1, 0, [])).to.be(true)
+test('outOfBounds', function(t) {
+  var testArray = [1,2,3] 
+  var expecteds = {
+    "-2": true,
+    "-1": true,
+    0: false,
+    1: false,
+    2: false,
+    3: true,
+    4: true
+  }
+
+  Object.keys(expecteds).forEach(function (input1) {
+    Object.keys(expecteds).forEach(function (input2) {
+      var expected = expecteds[input1] || expecteds[input2]
+      var actual = indicesOutOfBounds(input1, input2, testArray)
+
+      var message = "cell counts are " + input1 + " and " + input2 + " is " +
+      (expected ? "out of bounds" : "not out of bounds")
+
+      t.equal(actual, expected, message)
+    })
   })
-  it('returns true with an index larger >= array.length', function () {
-    expect(indicesOutOfBounds(1, 0, [])).to.be(true)
-  })
-  it('returns false with a valid index', function () {
-    expect(indicesOutOfBounds(0, 0, [1])).to.be(false)
-  })
+  t.end()
 })

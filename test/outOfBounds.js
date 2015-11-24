@@ -1,7 +1,6 @@
 var test = require('tape')
 var outOfBounds = require('../outOfBounds')
 
-
 test('outOfBounds', function(t) {
   var testArray = [1,2,3] 
   var expecteds = {
