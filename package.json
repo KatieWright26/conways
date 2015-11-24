@@ -8,19 +8,15 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "expect.js": "^0.3.1",
-    "mocha": "^2.3.4",
-    "standard": "^5.4.1"
+    "standard": "^5.4.1",
+    "tape": "^4.2.2"
   },
   "scripts": {
-    "test": "standard && mocha"
+    "test": "standard && tape test/**/*.js",
+    "tape": "tape test/**/*.js"
   },
   "standard": {
-    "globals": [
-      "describe",
-      "it",
-      "beforeEach"
-    ]
+    "globals": [ ]
   },
   "repository": {
     "type": "git",

@@ -1,11 +1,28 @@
-var expect = require('expect.js')
+var test = require('tape')
 var underPopulated = require('../underPopulated')
 
-describe('#underPopulated', function () {
-  it('should return true with cell count < 2', function () {
-    expect(underPopulated(1)).to.be(true)
+test('underPopulated normal cases', function (t) {
+  var expecteds = {
+    0: true,
+    1: true,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+    7: false,
+    8: false
+  }
+
+  Object.keys(expecteds).forEach(function (input) {
+    var expected = expecteds[input]
+    var actual = underPopulated(input)
+
+    var message = 'cell count ' + input + ' is ' +
+      (expected ? 'underpopulated' : 'not underpopulated')
+
+    t.equal(actual, expected, message)
   })
-  it('should return false with cell count < 3', function () {
-    expect(underPopulated(2)).to.be(false)
-  })
+
+  t.end()
 })
