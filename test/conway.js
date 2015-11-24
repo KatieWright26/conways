@@ -23,10 +23,10 @@ test('nextBoard', function (t) {
     board[2][1] = true
     board[2][2] = true
     var newBoard = conway.nextBoard(board)
-    t.true(newBoard[2][2])
-    t.true(newBoard[1][1])
-    t.true(newBoard[2][1])
-    t.true(newBoard[1][2])
+    t.true(newBoard[2][2], 'Example two is correct')
+    t.true(newBoard[1][1], 'Example two is correct')
+    t.true(newBoard[2][1], 'Example two is correct')
+    t.true(newBoard[1][2], 'Example two is correct')
   })()
   ;(function () {
     var board = conway.createBoard(10)
@@ -34,7 +34,7 @@ test('nextBoard', function (t) {
     board[0][1] = true
     board[1][0] = true
     var newBoard = conway.nextBoard(board)
-    t.true(newBoard[1][1])
+    t.true(newBoard[1][1], 'Example three is correct')
   })()
   t.end()
 })
