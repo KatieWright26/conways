@@ -1,6 +1,6 @@
 {
   "name": "conways",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Conways game of life node module",
   "main": "conway.js",
   "directories": {
