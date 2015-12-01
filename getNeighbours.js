@@ -1,15 +1,15 @@
-var indicesOutOfBounds = require('./indicesOutOfBounds')
+var Immutable = require('immutable')
 
 function getNeighbours (r, c, board) {
-  var neighbours = []
+  var neighbours = Immutable.List()
   for (var i = -1; i < 2; i++) {
     for (var j = -1; j < 2; j++) {
       var _r = r + i
       var _c = c + j
-      if ((i === 0 && j === 0) || indicesOutOfBounds(_r, _c, board)) {
+      if (i === 0 && j === 0) {
         continue
       }
-      neighbours.push(board[_r][_c])
+      neighbours = neighbours.push(board.getIn([_r, _c]))
     }
   }
   return neighbours

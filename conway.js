@@ -1,20 +1,22 @@
+var Immutable = require('immutable')
 var countAliveNeighbours = require('./countAliveNeighbours')
 var nextCellState = require('./nextCellState')
 
 function createBoard (size) {
-  var board = new Array(size)
+  var board = Immutable.List()
   for (var i = 0; i < size; i++) {
-    board[i] = new Array(size)
+    board = board.push(Immutable.List().setSize(size))
   }
   return board
 }
 function nextBoard (currentBoard) {
-  var nextBoard = createBoard(currentBoard.length)
-  for (var i = 0; i < currentBoard.length; i++) {
-    for (var j = 0; j < currentBoard.length; j++) {
-      var cell = currentBoard[i][j]
+  var nextBoard = createBoard(currentBoard.count())
+  for (var i = 0; i < currentBoard.count(); i++) {
+    for (var j = 0; j < currentBoard.count(); j++) {
+      var cell = currentBoard.getIn([i, j])
       var neighbourCount = countAliveNeighbours(i, j, currentBoard)
-      nextBoard[i][j] = nextCellState(cell, neighbourCount)
+      var nextCell = nextCellState(cell, neighbourCount)
+      nextBoard = nextBoard.setIn([i, j], nextCell)
     }
   }
   return nextBoard
