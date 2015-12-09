@@ -13,6 +13,7 @@ test('countAliveNeighbours', function (t) {
   board = board.setIn([2, 2], true)
   board = board.setIn([1, 2], true)
   board = board.setIn([1, 1], true)
+  console.log(board)
   t.equal(countAliveNeighbours(1, 1, board), 8)
   t.equal(countAliveNeighbours(0, 0, board), 3)
   t.end()

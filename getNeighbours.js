@@ -1,17 +1,26 @@
 var Immutable = require('immutable')
 
-function getNeighbours (r, c, board) {
-  var neighbours = Immutable.List()
-  for (var i = -1; i < 2; i++) {
-    for (var j = -1; j < 2; j++) {
-      var _r = r + i
-      var _c = c + j
-      if (i === 0 && j === 0) {
-        continue
-      }
-      neighbours = neighbours.push(board.getIn([_r, _c]))
-    }
-  }
-  return neighbours
+var relativeNeighbours = Immutable.List([
+  [-1, -1],
+  [-1, 0],
+  [-1, 1],
+  [0, -1],
+  [0, 1],
+  [1, -1],
+  [1, 0],
+  [1, -1]
+])
+
+function neighbourPositions (r, c) {
+  console.log(relativeNeighbours)
+  return relativeNeighbours.map(function (relativePosition) {
+    return [relativePosition[0] + r, relativePosition[1] + c]
+  })
 }
+function getNeighbours (r, c, board) {
+  return neighbourPositions(r, c).map(function (neighbour) {
+    return board.getIn(neighbour)
+  })
+}
+
 module.exports = getNeighbours
