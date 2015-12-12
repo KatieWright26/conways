@@ -1,13 +1,7 @@
 var countAliveNeighbours = require('./countAliveNeighbours')
 var nextCellState = require('./nextCellState')
+var createBoard = require('./createBoard')
 
-function createBoard (size) {
-  var board = new Array(size)
-  for (var i = 0; i < size; i++) {
-    board[i] = new Array(size)
-  }
-  return board
-}
 function nextBoard (currentBoard) {
   var nextBoard = createBoard(currentBoard.length)
   for (var i = 0; i < currentBoard.length; i++) {
@@ -20,5 +14,4 @@ function nextBoard (currentBoard) {
   return nextBoard
 }
 
-exports.createBoard = createBoard
 exports.nextBoard = nextBoard

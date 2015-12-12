@@ -1,6 +1,6 @@
 var test = require('tape')
 var getNeighbours = require('../getNeighbours')
-var createBoard = require('../conway.js').createBoard
+var createBoard = require('../createBoard')
 
 test('getNeighbours in corner', function (t) {
   var board = createBoard(10)
