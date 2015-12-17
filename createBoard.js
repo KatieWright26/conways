@@ -1,9 +1,10 @@
+var Immutable = require('immutable')
+
 function createBoard (size) {
-  var board = new Array(size)
+  var board = Immutable.List()
   for (var i = 0; i < size; i++) {
-    board[i] = new Array(size)
+    board = board.push(Immutable.List().setSize(size))
   }
   return board
 }
-
 module.exports = createBoard

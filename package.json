@@ -1,12 +1,15 @@
 {
   "name": "conways",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "Conways game of life node module",
   "main": "conway.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "faucet": "0.0.1",
+    "immutable": "^3.7.5"
+  },
   "devDependencies": {
     "faucet": "0.0.1",
     "standard": "^5.4.1",
@@ -14,7 +17,7 @@
   },
   "scripts": {
     "test": "standard && tape test/**/*.js | faucet",
-    "tape": "tape test/**/*.js"
+    "tape": "tape test/**/*.js | faucet"
   },
   "standard": {
     "globals": []

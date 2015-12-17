@@ -1,17 +1,25 @@
-var indicesOutOfBounds = require('./indicesOutOfBounds')
+var Immutable = require('immutable')
 
-function getNeighbours (r, c, board) {
-  var neighbours = []
-  for (var i = -1; i < 2; i++) {
-    for (var j = -1; j < 2; j++) {
-      var _r = r + i
-      var _c = c + j
-      if ((i === 0 && j === 0) || indicesOutOfBounds(_r, _c, board)) {
-        continue
-      }
-      neighbours.push(board[_r][_c])
-    }
-  }
-  return neighbours
+var relativeNeighbours = Immutable.List([
+  [-1, -1],
+  [-1, 0],
+  [-1, 1],
+  [0, -1],
+  [0, 1],
+  [1, -1],
+  [1, 0],
+  [1, 1]
+])
+
+function neighbourPositions (r, c) {
+  return relativeNeighbours.map(function (relativeNeighbour) {
+    return [relativeNeighbour[0] + r, relativeNeighbour[1] + c]
+  })
 }
+function getNeighbours (r, c, board) {
+  return neighbourPositions(r, c).map(function (neighbourPosition) {
+    return board.getIn(neighbourPosition)
+  })
+}
+
 module.exports = getNeighbours
