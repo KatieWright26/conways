@@ -12,13 +12,13 @@ var relativeNeighbours = Immutable.List([
 ])
 
 function neighbourPositions (r, c) {
-  return relativeNeighbours.map(function (relativePosition) {
-    return [relativePosition[0] + r, relativePosition[1] + c]
+  return relativeNeighbours.map(function (relativeNeighbour) {
+    return [relativeNeighbour[0] + r, relativeNeighbour[1] + c]
   })
 }
 function getNeighbours (r, c, board) {
-  return neighbourPositions(r, c).map(function (neighbour) {
-    return board.getIn(neighbour)
+  return neighbourPositions(r, c).map(function (neighbourPosition) {
+    return board.getIn(neighbourPosition)
   })
 }
 
