@@ -1,10 +1,6 @@
-var Immutable = require('immutable')
-
+var nd = require('ndarray')
 function createBoard (size) {
-  var board = Immutable.List()
-  for (var i = 0; i < size; i++) {
-    board = board.push(Immutable.List().setSize(size))
-  }
+  var board = nd(new Uint8Array(size * size), [size, size])
   return board
 }
 module.exports = createBoard

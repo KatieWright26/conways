@@ -7,7 +7,7 @@
     "test": "test"
   },
   "dependencies": {
-    "immutable": "^3.7.5"
+    "ndarray": "^1.0.18"
   },
   "devDependencies": {
     "faucet": "0.0.1",
